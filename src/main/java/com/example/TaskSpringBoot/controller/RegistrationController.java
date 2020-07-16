@@ -31,7 +31,6 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String addUser(@ModelAttribute("user") User user, ModelMap model) {
         User userFromDb = userRepo.findByFirstName(user.getFirstName());
-        System.out.println(user.getFirstName() + " " + user.getPassword() + " " + user.getId());
 
         if(userFromDb != null) {
             System.out.println(" yes");
