@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Bootstrap</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -33,7 +34,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" id="admin-tab" data-toggle="pill" href="#admin" role="tab">Admin</a>
                 </li>
-                <li class="nav-item">
+                <li sec:authorize="hasRole('ROLE_USER')" class="nav-item">
                     <a class="nav-link" id="profile-tab" data-toggle="pill" href="#user" role="tab">User</a>
                 </li>
             </ul>
@@ -347,7 +348,7 @@
                         </div>
                     </div>
                 </div>
-                <div div class="tab-pane" id="user" role="tabpanel">
+                <div sec:authorize="hasRole('ROLE_USER')" div class="tab-pane" id="user" role="tabpanel">
                     <span class="h1">User information-page</span>
                     <br>
                     <br>
